@@ -1,0 +1,149 @@
+
+
+@font-face {
+    font-family: Perish;
+    src: url('font/TheyPerished.ttf');
+} 
+
+/* Large desktop */
+@media (min-width: 1200px) { 
+    body    {
+        padding-left: 50px;
+        padding-right: 50px;
+        color: green;
+    }
+    
+   
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 1199px) { 
+    body    {
+        padding-left: 30px;
+        padding-right: 30px;
+        color: purple;
+    }
+   
+    
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { 
+    body    {
+        padding-left: 20px;
+        padding-right: 20px;
+        color: blue;
+        
+    }
+    
+    
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) { 
+    body    {
+        padding-left: 5px;
+        padding-right: 5px;
+        color: red;
+    }
+   
+    
+}
+
+body {
+    background-color: #36000f;
+}
+
+#title {
+    text-align: center;
+    font-family: 'Perish', sans-serif;
+    text-shadow: 2px 2px 2px #000000;
+}
+
+#Main {
+    margin: 10px auto;
+    position: relative;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 90%;
+    z-index: 2;
+    background: rgba(255,255,255,0.75);
+    font-family: 'Roboto', sans-serif;
+    outline: 5px inset #FFFFFF;
+    outline-offset: 4px;
+    transition: all 150ms ease-in-out;
+}
+
+#menu_appear {
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    background: #444;
+    width: 75%;
+    color: #fff;
+    margin: 8px auto;
+    cursor: pointer;
+    line-height: 68px;
+    -webkit-transition: all 150ms ease-in-out;
+    -moz-transition: all 150ms ease-in-out;
+    -ms-transition: all 150ms ease-in-out;
+    -o-transition: all 150ms ease-in-out;
+    transition: all 150ms ease-in-out;
+}
+
+    #menu_appear:hover {
+        background: #8A8A8A;
+        transform: scale(1.1);
+    }
+
+
+.option-box {
+    font-size: 20px;
+    height: 70px;
+    width: 100%;
+    background: #444;
+    margin: 8px;
+    float: left;
+    text-align: center;
+    line-height: 68px;
+    opacity: 1;
+    color: #fff;
+    z-index: 99;
+    cursor: pointer;
+    -webkit-transition: all 150ms ease-in-out;
+    -moz-transition: all 150ms ease-in-out;
+    -ms-transition: all 150ms ease-in-out;
+    -o-transition: all 150ms ease-in-out;
+    transition: all 150ms ease-in-out;
+}
+    .option-box:hover {
+        background: #8A8A8A;
+        transform: scale(1.1);
+    }
+
+.visible {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+    transition: all .5s ease-in-out;
+}
+/* Fade-Out Effect */
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all .5s ease-in-out;
+}
+.textarea-div {
+    width: 90%;
+    transition: all 150ms ease-in-out;
+    margin: 10px auto;
+   
+}
+#text{
+    width: 100%;
+}
+
+

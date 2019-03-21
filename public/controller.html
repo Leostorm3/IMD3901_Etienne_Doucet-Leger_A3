@@ -1,0 +1,154 @@
+ <!DOCTYPE html>
+<html>
+<head>
+
+    <title>Phone Controls</title>
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- here is a pluggin library to help us make cooler responsive menu -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</head>
+<body>
+    <div id="Main">
+        <header>
+            <h1 id="title">this is the controller client test</h1>
+        </header>
+       <!-- <div id="test-button">
+
+                <button id="red" style="background-color: red; color: whitesmoke;">red</button>
+            <button id="green" style="background-color: green; color: whitesmoke;">green</button>
+            <button id="blue" style="background-color: blue; color: whitesmoke;">blue</button>
+
+            <p>First name:</p>
+         <input id="text" type="text" name="firstname" value="Test">
+            <textarea id="text" rows="4" cols="40" value="Test" style="resize: none"></textarea>
+            <br>
+            <button id="submit" style="background-color: blue; color: whitesmoke;">send</button>
+        </div> -->
+
+        <div id="menu_appear"> <p>Make the button appear <i class="fas fa-book"></i> </p></div>
+
+        <div class="option-boxes">
+            <div class="hidden" style="display: none;">
+                <div class="w3-row-padding w3-border">
+                    <div class="w3-half w3-container">
+                        <div class="option-box" id="Text_button">Send Text</div>
+                    </div>
+                    <div class="w3-half w3-container">
+                        <div class="option-box"> option 2</div>
+                    </div>
+
+                </div>
+                <div class="w3-row-padding w3-border">
+                    <div class="w3-half w3-container">
+                        <div class="option-box">option 3</div>
+                    </div>
+                    <div class=" w3-half w3-container">
+                        <div class="option-box"> option 4</div>
+                    </div>
+
+                </div>
+                <div class="w3-row-padding w3-border">
+                    <div class="w3-half w3-container">
+                        <div class="option-box"> option 5</div>
+                    </div>
+                    <div class="w3-half w3-container">
+                        <div class="option-box"> option 6</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="textarea-div">
+            <div class="hidden" style="display: none;">
+                <p>Enter Text to send to user:</p>
+                <!-- <input id="text" type="text" name="firstname" value="Test"> -->
+                <textarea id="text" rows="7" value="Test" style="resize: none"></textarea>
+                <br>
+                <button id="submit" style="background-color: blue; color: whitesmoke;">send</button>
+            </div>
+        </div>
+      
+</div>
+            <script src="/socket.io/socket.io.js"></script>
+            <script>
+                let socket = io();
+               /* document.querySelector('#red').addEventListener('click',function(){
+                        socket.emit('red');
+                });
+                document.querySelector('#green').addEventListener('click',function(){
+                        socket.emit('green');
+                });
+                document.querySelector('#blue').addEventListener('click',function(){
+                        socket.emit('blue');
+                });*/
+
+                document.querySelector('#submit').addEventListener('click',function(){
+                       console.log("test");
+                
+                        socket.emit('text',{textdata:document.querySelector("#text").value});
+                        document.querySelector("#text").value = " ";
+                });
+                //this wil control all the hide text stuff
+                Menu = document.querySelector('.option-boxes>div');
+                Textarea =document.querySelector('.textarea-div>div');
+                hidecontent = false;
+                
+                document.querySelector('#menu_appear').addEventListener('click', function () {
+                    console.log("test");
+                    if (hidecontent == false) {
+                        
+                        setTimeout(function(){
+                            Menu.style.display="block";
+                        }, 150);
+                        hideallContent();
+                         setTimeout(function(){
+                            Menu.className = "visible";
+                        hidecontent = true;
+                        }, 300);
+                       
+                        
+                       
+                    }
+                    else if (hidecontent == true) {
+                        Menu.className = "hidden";
+                        hidecontent = false;
+                       setTimeout(function(){
+                        Menu.style.display="none";
+                        }, 150);
+                    } 
+                });
+
+                //text menu
+                document.querySelector('#Text_button').addEventListener('click', function () {
+                    Menu.className = "hidden";
+                        hidecontent = false;
+                        setTimeout(function(){
+                        Menu.style.display="none"; 
+                        Textarea.style.display="block";
+                        }, 150);
+                        setTimeout(function(){
+                            Textarea.className = "visible";
+                        }, 300);
+                  
+                });
+
+                function hideallContent(){
+                    Textarea.className = "hidden";
+                    setTimeout(function(){
+                        Textarea.style.display="none";
+                        }, 150);
+                }
+
+
+
+
+
+
+    
+            </script>
+        
+</body>
+</html>

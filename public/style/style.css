@@ -123,19 +123,6 @@ body {
         transform: scale(1.1);
     }
 
-.visible {
-    visibility: visible;
-    opacity: 1;
-    transform: scale(1);
-    transition: all .5s ease-in-out;
-}
-/* Fade-Out Effect */
-.hidden {
-    visibility: hidden;
-    opacity: 0;
-    transform: scale(0.5);
-    transition: all .5s ease-in-out;
-}
 .textarea-div {
     width: 90%;
     transition: all 150ms ease-in-out;

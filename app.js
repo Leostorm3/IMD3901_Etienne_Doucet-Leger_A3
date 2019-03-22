@@ -31,7 +31,7 @@ socketIO.on('connection',function(socket) {
     socket.on('PlayerJoining', function(data){
         gameState.players[socket.id] = {
           x: 0,
-          y: 1.6,
+          y: 0.5,
           z: -5,
           width: 25,
           height: 25,

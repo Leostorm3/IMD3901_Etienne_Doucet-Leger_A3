@@ -1,16 +1,11 @@
 
 
-@font-face {
-    font-family: Perish;
-    src: url('font/TheyPerished.ttf');
-} 
-
 /* Large desktop */
 @media (min-width: 1200px) { 
     body    {
         padding-left: 50px;
         padding-right: 50px;
-        color: green;
+       
     }
     
    
@@ -21,7 +16,7 @@
     body    {
         padding-left: 30px;
         padding-right: 30px;
-        color: purple;
+        
     }
    
     
@@ -32,7 +27,7 @@
     body    {
         padding-left: 20px;
         padding-right: 20px;
-        color: blue;
+      
         
     }
     
@@ -44,7 +39,7 @@
     body    {
         padding-left: 5px;
         padding-right: 5px;
-        color: red;
+       
     }
    
     

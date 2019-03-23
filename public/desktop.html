@@ -12,8 +12,14 @@
 <body>
     <a-scene>
 
+        
 
-            <a-entity environment="preset: forest; dressingAmount: 600"></a-entity>
+            <a-entity  environment="preset: forest; shadow:true; lighting:point; dressingAmount: 600"></a-entity>
+            <a-entity  camera rotation="-90 0 0 "  position="0 20 0 "  id="MainCam">
+                <a-entity id="score" align="center" position="-0.2 0.6 -1 " text="value: Player in game;"></a-entity>
+            </a-entity>
+            <a-plane color="Red" height="22" width="22" rotation="-90 0 0"></a-plane>
+
     </a-scene>
 
     <script src="/socket.io/socket.io.js"></script>

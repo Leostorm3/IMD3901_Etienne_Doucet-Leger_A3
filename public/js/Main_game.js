@@ -1,7 +1,7 @@
 let socket = io();
 
 var sessionid;
-
+var PlayerList
 
 const scene = document.querySelector('a-scene');
 //here is a premade function to generate a player on the terrain
@@ -11,12 +11,17 @@ const GeneratePlayer = function(player) {
         //here we check if its the player the joined in if yes we are makibg a cam to follow
    
         let Char = document.createElement('a-entity');//create new element
+            
             Char.setAttribute('geometry',  "primitive: box" );
             Char.setAttribute('position',player.x + " " + player.y + " " + player.z);
             Char.setAttribute('scale',1 + " " + 1 + " " + 1);
             Char.setAttribute('material',"color"+ colorgen());
             Char.setAttribute('id',player.name);
-            scene.appendChild(Char);
+
+          
+              scene.appendChild(Char);
+        
+            
                       
 
 };
@@ -24,7 +29,7 @@ const GeneratePlayer = function(player) {
 const MoveUser = function(player){
     let User = document.getElementById(player.name);
     User.setAttribute('position',player.x + " " + player.y + " " + player.z);
-
+    //console.log(player.x);
 }
 const deleteUser = function(id){
     let User = document.getElementById(id);
@@ -101,11 +106,14 @@ setInterval(function(){
 
 socket.on('state', function(gameState){
     //console.log(gameState.players);
-    console.log(sessionid);
-   
+    //console.log(sessionid);
+    
         for (var id in gameState.players) {
         var element = document.getElementById(gameState.players[id].name);
         if(element == null ){
+        PlayerList = PlayerList + "  " + gameState.players[id].name + "\n"
+        console.log(PlayerList);
+        document.getElementById("score").setAttribute('text', "value: Player that joined the game \n" + PlayerList +";");
         var player = gameState.players[id];
         GeneratePlayer(player);
         }
@@ -113,6 +121,7 @@ socket.on('state', function(gameState){
     
         for (var id in gameState.players) {
             var player = gameState.players[id];
+            
             MoveUser(player);
     
     }
@@ -126,5 +135,5 @@ socket.on('state', function(gameState){
   
 socket.on('connect', function() {
    sessionid = socket.id; 
-   console.log(sessionid);
+   //console.log(sessionid);
 });

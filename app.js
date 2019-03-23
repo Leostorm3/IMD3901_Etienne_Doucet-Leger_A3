@@ -33,9 +33,10 @@ socketIO.on('connection',function(socket) {
           x: 0,
           y: 0.5,
           z: -5,
+          roty: 0,
           width: 25,
           height: 25,
-          energy:100,
+          score:0,
           name:socket.id
           
         };
@@ -45,16 +46,28 @@ socketIO.on('connection',function(socket) {
       socket.on('move', function(data) {
         var player = gameState.players[socket.id] || {};
         if (data.left) {
-          player.x -= 0.1;
+          if(player.x<-10){
+            player.x += 0.3;
+          }
+          player.x -= 0.3;
         }
         if (data.up) {
-          player.z -= 0.1;
+          if(player.z<-10){
+            player.z += 0.3;
+          }
+          player.z -= 0.3;
         }
         if (data.right) {
-          player.x += 0.1;
+          if(player.x>10){
+            player.x -= 0.3;
+          }
+          player.x += 0.3;
         }
         if (data.down) {
-          player.z += 0.1;
+          if(player.z>10){
+            player.z -= 0.3;
+          }
+          player.z += 0.3;
         }
       });
     
